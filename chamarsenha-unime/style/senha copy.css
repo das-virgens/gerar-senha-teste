@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap');
+
+@font-face {
+    font-family: "Rubik";
+    src: url("../fonts/Rubik-ExtraBold.ttf");
+}
+
+@font-face {
+    font-family: "Rubik-Regular";
+    src: url("../fonts/Rubik-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Rubik-Light";
+    src: url("../fonts/Rubik-Light.ttf");
+}
+
+@font-face {
+    font-family: "Rubik-SemiBold";
+    src: url("../fonts/Rubik-SemiBold.ttf");
+}
+@font-face {
+    font-family: "Signika-Light";
+    src: url("../fonts/Signika-Light.ttf");
+}
+
+@font-face {
+    font-family: "Signika-Regular";
+    src: url("../fonts/Signika-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Signika-Bold";
+    src: url("../fonts/Signika-Bold.ttf");
+}
+
+:root {
+    --cor-principal: #FF2800;
+    --cor-indisponivel-fundo: #F5DEDE;
+    --cor-disponivel-fundo: #DEF5E3; 
+}
+
+body{
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+    font-family: 'Sora', sans-serif;
+}
+.strong{
+    font-family: "Signika-Bold";
+}
+
+.history p{
+    font-family: 'Signika-Bold';
+  text-transform: uppercase !important;
+}
+
+#fino{
+    font-family: "Signika-Light" !important;
+}
+
+footer{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    background-color: var(--cor-principal);
+    padding: 19px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: "Signika-Light";
+}
+
+.container-general{
+    position: absolute;
+    left: 40px;
+    top: 90px;
+    width: 920px;
+    display: flex;
+    gap: 75px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.container-bottom{
+    background-color: #FF2800;
+    padding: 140px 457px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.titulo{
+    width: 31.4815vh;
+    height: 5.5556vh;
+    background-color: #ffffff13;
+    border-radius: 5px;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: 38.53px;
+}
+#senhaInfo{
+    position: absolute;
+    margin-top: 0px;
+    height: 0px;
+    font-size: 70px;
+    color: white;
+    text-transform: uppercase;
+    font-family: "Signika-Regular";
+}
+#logo{
+    position: absolute;
+    right: 3vh;
+}
+
+.container-top{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.top-left{
+    width: 897.93px;
+    height: 100%;
+}
+
+.top-right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 49.1852vh;
+    height: 100%;
+}
+
+.top-right h1{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    width: 80%;
+    font-size: 15px;
+    font-weight: 500;
+    color: white;
+    padding: 10px;
+    background-color: #FF2800;
+}
+
+#historicoSenhas{
+    padding-top: 10px;
+    width: 83%;
+    display: flex;
+    overflow-y: hidden;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    justify-content: start;
+    gap: 5px !important;
+    padding-left: 10px;
+    height: 575px;
+    background-color: #00000006;
+}
+
+.history{
+    padding-left: 15px;
+    width: 90%;
+    justify-content: start;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 10px;
+    align-items: center;
+}
+
+
+.history img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+/* ENFEITES NA TELA */
+
+#textura{
+    position: absolute;
+    zoom: 0.85;
+    top: 0;
+    opacity: 15%;
+}
+
+#points{
+    position: absolute;
+    bottom: 13%;
+    zoom: 0.80;
+    animation: bolinhas 5s infinite ease-in-out;
+}
+
+#vempor{
+    position: absolute;
+    right: 0px;
+    width: 6%;
+    bottom: 10%;
+    animation: vempor 5s infinite ease-in-out;
+}
+
+@keyframes vempor {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+.logo-anhanguera{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    zoom: 0.70;
+}
+
+#nameAnhanguera{
+    width: 500px;
+}
+#gifAnhanguera{
+    height: 208.85px; 
+    margin-bottom: -20px;   
+}

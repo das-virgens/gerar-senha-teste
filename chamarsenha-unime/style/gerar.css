@@ -1,0 +1,531 @@
+@font-face {
+    font-family: "Rubik";
+    src: url("../fonts/Rubik-ExtraBold.ttf");
+}
+
+@font-face {
+    font-family: "Rubik-Regular";
+    src: url("../fonts/Rubik-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Rubik-Light";
+    src: url("../fonts/Rubik-Light.ttf");
+}
+
+@font-face {
+    font-family: "Rubik-SemiBold";
+    src: url("../fonts/Rubik-SemiBold.ttf");
+}
+@font-face {
+    font-family: "Signika-Light";
+    src: url("../fonts/Signika-Light.ttf");
+}
+
+@font-face {
+    font-family: "Signika-Regular";
+    src: url("../fonts/Signika-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Signika-Bold";
+    src: url("../fonts/Signika-Bold.ttf");
+}
+
+:root {
+    --cor-principal: #FF2800;
+    --cor-indisponivel-fundo: #F5DEDE;
+    --cor-disponivel-fundo: #DEF5E3; 
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    user-select: none;
+}
+
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+}
+
+header{
+    width: 95%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #1515151f;
+}
+
+.header-left{
+    display: flex;
+    align-items: center;
+}
+
+.left-one img{
+    width: 100px;
+    margin-right: -18px;
+}
+
+.header-left h1{
+    font-family: 'Rubik';
+    text-transform: uppercase;
+    color: var(--cor-principal);
+}
+
+.header-left span{
+    font-family: "Signika-Light";
+}
+
+.header-right{
+    display: flex;
+    gap: 5px;
+}
+
+.header-right #verAgenda{
+    background-color: var(--cor-principal);
+    border: 4px solid #ffffffe8;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-shrink: 0;
+    color: white;
+    font-family: "Signika-Bold";
+    font-size: 18px;
+    padding: 16.7px 26.08px;
+    height: 32px;
+    cursor: pointer;
+}
+
+.header-right #sala{
+    background-color: white;
+    border: 4px solid #ff26003a;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-shrink: 0;
+    color: var(--cor-principal);
+    font-family: "Signika-Bold";
+    font-size: 18px;
+    padding: 16.7px 26.08px;
+    height: 32px;
+    cursor: pointer;
+}
+
+.header-right #painelweb{
+    background-color: white;
+    border: 4px solid #ff26003a;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    flex-shrink: 0;
+    color: var(--cor-principal);
+    font-family: "Signika-Bold";
+    font-size: 18px;
+    padding: 16.7px 26.08px;
+    height: 32px;
+    cursor: pointer;
+}
+
+
+.header-right #sala img, .header-right #verAgenda img, .header-right #painelweb img{
+    zoom: 0.75;
+}
+
+/* ENFEITES NA TELA */
+
+#textura{
+    position: absolute;
+    zoom: 0.85;
+    top: 15%;
+    opacity: 50%;
+}
+
+#points{
+    position: absolute;
+    bottom: 13%;
+    zoom: 0.80;
+    animation: bolinhas 5s infinite ease-in-out;
+}
+
+#vempor{
+    position: absolute;
+    right: 0px;
+    width: 6%;
+    bottom: 10%;
+    animation: vempor 5s infinite ease-in-out;
+}
+
+@keyframes vempor {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+
+footer{
+    width: 100%;
+    background-color: var(--cor-principal);
+    padding: 19px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: "Signika-Light";
+}
+
+.strong{
+    font-family: "Signika-Bold";
+}
+
+section{
+    width: 100%;
+}
+
+#items-container{
+    width: 100%;
+    height: 94vh;
+   display: flex;
+   zoom: 0.70;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   flex-wrap: wrap;
+
+}
+
+
+.itemCard > div {
+    margin: 10px;
+}
+
+.itemCard div h2{
+    font-size: 30px;
+    color: white;
+    text-align: start;
+    text-transform: uppercase;
+    font-family: 'Signika-Bold';
+}
+
+.itemCard div ul{
+    font-size: 18px;
+    text-align: start;
+    margin-left: 10px;
+    color: white;
+    text-transform: uppercase;
+    font-family: 'Signika-Light';
+}
+
+.itemCard div p{
+    color: green;
+    text-transform: uppercase;
+    font-family: 'Signika-Regular';
+}
+
+.profileImage{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 140px;
+}
+.imagemCoord {
+    width: 100%;
+    height: 90%;
+    border-radius: 6px;
+}
+.bolinha {
+    width: 10px;
+    height: 10px;
+    background-color: green;
+    border-radius: 50%;
+}
+
+.bolinha-no {
+    width: 10px;
+    height: 10px;
+    background-color: #B40000;
+    border-radius: 50%;
+}
+
+.itemCard {
+    background-color: var(--cor-principal);
+    border-radius: 12px;
+    border: none !important;
+    width: 600px;
+    overflow: hidden;
+    height: 18.5%;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+#infoCard{
+    height: 90%;
+}
+
+.itemCard:hover{
+    transform: scale(0.99) !important;
+    opacity: 90%;
+    transition: 0.2s ease-in-out;
+}
+.status{
+    position: absolute;
+    bottom: -12px;
+    right: -12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: auto;
+    background-color: var(--cor-disponivel-fundo);
+    padding: 5px 8px;
+    border-radius: 10px 0px 0px;
+    border: 8px solid white;
+}
+
+.mascara {
+    position: absolute;
+    top: 0px;
+    left: 9%;
+    width: 80px;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0),#ff260058, var(--cor-principal)); /* gradiente transparente para opaco */
+}
+
+
+.containerSenha{
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    width: 418px;
+    height: 483.12px;
+    overflow: hidden;
+    background: #FFFFFF;
+  }
+  
+  #identificadorSenha{
+    position: absolute;
+    width: 349px;
+    height: 133px;
+    left: 34px;
+    top: 185px;
+    text-transform: uppercase;
+    font-family: 'Rubik-Regular';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 110.98px;
+    line-height: 132%;
+    /* or 158px */
+  
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  
+    color: #000000;
+  }
+  
+  #nomeDoCoordenador{
+    text-transform: uppercase;
+    position: absolute;
+    width: 349px;
+    height: 64px;
+    left: 34px;
+    top: 157px;
+    
+    font-family: 'Rubik-Light';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 132%;
+    /* or 37px */
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+    color: #000000;
+    
+  }
+  
+  #dateHours{
+    
+  position: absolute;
+  width: 341px;
+  height: 24px;
+  left: 25px;
+  top: 375px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: 'Rubik-Light';
+  font-size: 18px;
+  line-height: 132%;
+  /* identical to box height, or 24px */
+  
+  text-align: center;
+  
+  color: #000000;
+  
+  }
+  
+  #footer-recibo{
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+  }
+
+#welcome{
+    position: absolute;
+    font-size: 15px;
+    width: 100%;
+    top: 110px;
+    text-align: center;
+    font-family: "Rubik-Light";
+}
+
+#oriente{
+    position: absolute;
+    top: 330px;
+    left: 25px;
+    font-family: 'Rubik-Light';
+    font-size: 20px;
+}
+
+#atendimento{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 135px;
+    font-family: 'Rubik-SemiBold';
+    font-size: 20px;
+}
+
+#logotype-recibo{
+    position: absolute;
+    left: 50%;
+    top: 30px;
+    transform: translate(-50%,0%);
+}
+
+
+.containerAgenda, .containerQrCode{
+    transform: translate(-50%, -50%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 1024px;
+    height: 576px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 0px 3000px rgba(0, 0, 0, 0.82);
+  }
+  
+  #closeAgenda, #closeQrCode{
+    position: absolute;
+    top: -9%;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 40px;
+    font-size: 17px;
+    font-family: "Rubik-Regular";
+    font-weight: 500;
+    border-radius: 20px;
+    background-color: #b5272767;
+    border: 1px solid #7a7a7a;
+    border: none;
+    color: rgb(255, 255, 255);
+  }
+
+.containerAgenda, .containerQrCode, .containerQrCode2{
+    transform: translate(-50%, -50%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 1024px;
+    height: 576px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 0px 3000px rgba(0, 0, 0, 0.82);
+  }
+  
+  #closeAgenda, #closeQrCode, #closeQrCode2{
+    position: absolute;
+    top: -9%;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 40px;
+    font-size: 17px;
+    font-family: "Rubik-Regular";
+    font-weight: 500;
+    border-radius: 20px;
+    background-color: #b5272767;
+    border: 1px solid #7a7a7a;
+    border: none;
+    color: rgb(255, 255, 255);
+  }
+  
+  
+  #bannerProfs{
+    margin: 0;
+    top: 0;
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  #atencaoSempre{
+    color: white;
+    font-size: 22px;
+    font-weight: 700;
+  }
+  
+  #showAgenda2{
+    color: #262626 !important;
+  }
+  
+
+  .bannerProfs{
+    height: auto;
+    width: 1024px;
+  }

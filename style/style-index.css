@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100;200;300;400;500;600;700;800&display=swap');
+body{
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+    font-family: 'Sora', sans-serif;
+    text-transform: capitalize;
+}
+
+#rodapeSpan{
+    display: none;
+    bottom:10px !important;
+    font-size: 12px;
+    position: absolute;
+    left: 50%;
+    width: 100%;
+    font-weight:500;
+    color: #00000066 !important;
+    transform: translate(-50%,0%)
+}
+#luis:hover{
+    cursor: pointer !important;
+    font-weight:600;
+    color: #00000090 !important;
+}
+
+
+button{
+    transition: .2s ease-in-out;
+    border: none !important;
+    padding: 10px 5px;
+}
+
+#chamarSenha{
+    cursor: pointer;
+    background: green;
+    border-radius: 3px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 50px;
+}
+
+.header img{
+    width: 120px;
+}
+
+.group-perfil{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.group-perfil img{
+    width: 35px;
+    height: 35px;
+}
+
+.group-perfil h1{
+    color: white;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.footer:hover{
+    transition: .4s ease-in-out;
+    opacity: 100%;
+
+}
+
+.footer{
+    transition: .4s ease-in-out;
+    opacity: 0%;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    padding: 10px 0px;
+    width: 350px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #00000013;
+    font-size: 10px;
+}
+
+
+#resetSenha{
+    cursor: pointer;
+    background-color: red;
+    border-radius: 3px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+}
+
+form{
+    margin-top: -10px;
+    width: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+button:hover{
+    transition: .4s ease-in-out;
+    opacity: 75%;
+    filter: saturate(0%);
+}
+
+#logout{
+    margin-top: 0px;
+    width: 272px;
+    transition: .2s ease-in-out;
+    padding: 10px 20px;
+    text-decoration: none;
+    cursor: pointer;
+    background: rgba(45, 45, 45, 0.073);
+    border-radius: 3px;
+    border: none !important;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+}
+
+
+.container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.senhaAtual{
+    padding: 20px;
+    height: 135px;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #0000000b !important;
+}
+.senhaAtual h1{
+    height: 0px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.senhaAtual h3{
+    margin-top: 5px;
+    height: 0px;
+    font-size: 83.61px;
+}
+
+
+form{
+    width: 100%;
+}
+
+#statusUsuario{
+    width: 100px;
+    font-size: 13px !important;
+    color: white !important;
+}

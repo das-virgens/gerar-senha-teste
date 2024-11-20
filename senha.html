@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="images/icone.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/senha.css">
+    <title>Chamar Senha</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="inputs-king" style="opacity: 0;">
+        <input type="text" id="coordenadorName">
+        <input type="text" id="coordenadorSenha">
+    </div>
+<img src="images/materials/vemporaqui.svg" alt="" id="vempor">
+        <img src="images/materials/circle 1.svg" alt="" id="points">
+        <img src="images/materials/degradê.svg" alt="" id="textura">
+        <audio id="audio" autoplay>
+            <source src="audio/chamada.wav" type="audio/wav">
+        </audio>
+    <div class="container-top">
+        <div class="top-right">
+            <h1>
+            <svg width="20" height="13" viewBox="0 0 43 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19.7726 17.3126L34.9016 7.85699V4.07473L19.7726 13.5304L4.64358 4.07473V7.85699L19.7726 17.3126ZM33.0105 30.5505C32.4747 30.5505 32.0255 30.3693 31.6631 30.0068C31.3006 29.6443 31.1194 29.1952 31.1194 28.6594V22.986C31.1194 22.4502 31.3006 22.001 31.6631 21.6386C32.0255 21.2761 32.4747 21.0949 33.0105 21.0949V19.2037C33.0105 18.1636 33.3808 17.2732 34.1215 16.5325C34.8622 15.7918 35.7526 15.4215 36.7927 15.4215C37.8329 15.4215 38.7233 15.7918 39.464 16.5325C40.2046 17.2732 40.575 18.1636 40.575 19.2037V21.0949C41.1108 21.0949 41.56 21.2761 41.9224 21.6386C42.2849 22.001 42.4661 22.4502 42.4661 22.986V28.6594C42.4661 29.1952 42.2849 29.6443 41.9224 30.0068C41.56 30.3693 41.1108 30.5505 40.575 30.5505H33.0105ZM34.9016 21.0949H38.6839V19.2037C38.6839 18.6679 38.5026 18.2188 38.1402 17.8563C37.7777 17.4939 37.3286 17.3126 36.7927 17.3126C36.2569 17.3126 35.8078 17.4939 35.4453 17.8563C35.0828 18.2188 34.9016 18.6679 34.9016 19.2037V21.0949ZM4.64358 30.5505C3.60346 30.5505 2.71306 30.1802 1.97237 29.4395C1.23167 28.6988 0.861328 27.8084 0.861328 26.7683V4.07473C0.861328 3.03461 1.23167 2.14421 1.97237 1.40352C2.71306 0.662826 3.60346 0.29248 4.64358 0.29248H34.9016C35.9417 0.29248 36.8321 0.662826 37.5728 1.40352C38.3135 2.14421 38.6839 3.03461 38.6839 4.07473V11.6392H36.7927C34.1767 11.6392 31.9467 12.5612 30.1029 14.405C28.259 16.2489 27.3371 18.4788 27.3371 21.0949V30.5505H4.64358Z" fill="white"/>
+        </svg>HISTÓRICO DE SENHAS
+            </h1>
+            <div id="historicoSenhas"></div>
+        </div>
+    </div>
+    <div class="container-general">
+        <div class="logo-anhanguera">
+            <img id="gifAnhanguera" style="transition: opacity 1s ease-in-out;" src="images/materials/vem-por-aqui-2.gif" alt="">
+            <img id="nameAnhanguera" style="transition: opacity 1s ease-in-out;" src="images/materials/logo-anhanguera-texto.png" alt="">
+        </div>
+      
+        <div class="container-bottom">
+            <h3 id="senhaInfo">Carregando...</h3>
+        </div>
+    </div>
+    <footer>
+            <span id="vemporaqui"></span>
+    </footer>
+    <script>
+        var ultimaSenha = '';
+        var historicoSenhas = [];
+        var audioElement = document.getElementById('audio');
+        var senhaInfoElement = document.getElementById('senhaInfo');
+
+        function verificarAtualizacao() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState === 4 && this.status === 200) {
+                    if (this.responseText !== "Sem senha no momento") {
+                        if (this.responseText !== ultimaSenha) {
+                            ultimaSenha = this.responseText;
+                            senhaInfoElement.innerHTML = ultimaSenha;
+                            tocarAudio();
+                            adicionarAoHistorico(ultimaSenha);
+                        }
+                    }
+                }
+            };
+            xhttp.open("GET", "verificar_atualizacao.php", true);
+            xhttp.send();
+        }
+
+        function adicionarAoHistorico(senha) {
+            historicoSenhas.push(senha);
+            atualizarListaHistorico();
+        }
+
+        function atualizarListaHistorico() {
+            var historicoDiv = document.getElementById("historicoSenhas");
+            historicoDiv.innerHTML = "";
+            for (var i = 0; i < historicoSenhas.length; i++) {
+                var senhaSplit = historicoSenhas[i].split(':'); 
+                var nome = senhaSplit[0].trim(); 
+                var divHistorico = document.createElement("div"); 
+                divHistorico.classList.add("history"); 
+
+                var paragrafo = document.createElement("p");
+                paragrafo.innerHTML = historicoSenhas[i];
+                var imagem = document.createElement("img"); 
+                imagem.src = "images/" + nome + ".png"; 
+                imagem.alt = nome; 
+                
+                divHistorico.appendChild(paragrafo);
+                divHistorico.appendChild(imagem);
+                historicoDiv.appendChild(divHistorico); 
+            }
+        }
+
+        function tocarAudio() {
+            audioElement.src = "audio/chamada.wav";
+            audioElement.play();
+        }
+
+        function falarSenha() {
+            var parser = new DOMParser();
+            var doc = parser.parseFromString(ultimaSenha, "text/html");
+            var textoSemTags = doc.body.textContent;
+            var mensagemVoz = new SpeechSynthesisUtterance(textoSemTags);
+            mensagemVoz.volume = 1; 
+            mensagemVoz.voice = getVozFeminina(); 
+            window.speechSynthesis.speak(mensagemVoz);
+        }
+
+        function getVozFeminina() {
+            var vozes = window.speechSynthesis.getVoices();
+            for(var i = 0; i < vozes.length; i++) {
+                if(vozes[i].name === 'Google português do Brasil') {
+                    return vozes[i];
+                }
+            }
+            return vozes[0];
+        }
+
+        audioElement.addEventListener('ended', function() {
+            falarSenha();
+            verificarAtualizacao();
+        });
+
+        setInterval(verificarAtualizacao, 1000);
+    </script>
+    <script>
+        let ultimaSenhaX = null;
+        var coordenadorName = document.getElementById('coordenadorName');
+        var coordenadorSenha = document.getElementById('coordenadorSenha');
+
+        function checkSenha() {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'check_senha.php', true);
+            xhr.onload = function () {
+                if (this.status === 200) {
+                    var resposta = JSON.parse(this.responseText);
+                    
+                    if (resposta && resposta.senha !== ultimaSenhaX) {
+                        coordenadorName.value = resposta.coordenador;
+                        coordenadorSenha.value = resposta.senha;
+                        handleSubmit();
+                        ultimaSenhaX = resposta.senha;
+                    }
+                }
+            };
+            xhr.send();
+        }
+
+        checkSenha();
+
+        setInterval(checkSenha, 5000);
+        function handleSubmit() {
+            var coordenadorName2 = document.getElementById('coordenadorName').value;
+            var coordenadorSenha2 = document.getElementById('coordenadorSenha').value;
+             
+            var agora = new Date();
+            var dataAtual = agora.toLocaleDateString();
+            var horarioAtual = agora.toLocaleTimeString();
+            
+            fetch('https://api.sheetmonkey.io/form/dvSEe8dEHmFAnrqsppAbRK', {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ 
+                    Coordenador: coordenadorName2, 
+                    Senha: coordenadorSenha2
+                })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro ao enviar dados');
+                }
+                console.log('Dados enviados com sucesso', response);
+            })
+            .catch(error => {
+                console.error('Erro ao enviar dados:', error);
+            });
+        }
+
+
+      
+    </script>
+    <script>
+        function textoFooter() {
+            var vemporaqui = document.getElementById('vemporaqui');
+            var randowResult = Math.floor(Math.random() * 5) + 1; 
+            if (randowResult === 1) {
+                vemporaqui.innerHTML = "Deseja falar com o seu coordenador, <span class='strong'>vem por aqui...</span>";
+            } else if (randowResult === 2) {
+                vemporaqui.innerHTML = "Tem dúvidas? <span class='strong'>Vem por aqui...</span>";
+            } else if (randowResult === 3) {
+                vemporaqui.innerHTML = "Deseja suporte acadêmico? <span class='strong'>Vem por aqui...</span>";
+            } else if (randowResult === 4) {
+                vemporaqui.innerHTML = "Precisa de ajuda? <span class='strong'>Vem por aqui...</span>";
+            } else if (randowResult === 5) {
+                vemporaqui.innerHTML = "Quer falar com a coordenação? <span class='strong'>Vem por aqui...</span>";
+            }
+        }
+
+        textoFooter();
+        setInterval(textoFooter, 20000);
+    </script>
+</body>
+</html>
+
